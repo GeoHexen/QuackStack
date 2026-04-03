@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cloud Integrations | QuackStack Consultancy — apps, APIs, and platforms we integrate with.">
+    <link rel="canonical" href="https://www.thequackstack.co.uk/cloud-integrations.html">
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="#020617">
+
+    <meta property="og:title" content="Cloud Integrations | QuackStack Consultancy">
+    <meta property="og:description" content="Selected integrations: Dynamics CRM, Microsoft Graph API, Google Classroom, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.thequackstack.co.uk/cloud-integrations.html">
+    <meta property="og:image" content="https://www.thequackstack.co.uk/smallDuck.png">
+    <meta property="og:site_name" content="QuackStack Consultancy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cloud Integrations | QuackStack Consultancy">
+    <meta name="twitter:description" content="Selected integrations: Dynamics CRM, Microsoft Graph API, Google Classroom, and more.">
+    <meta name="twitter:image" content="https://www.thequackstack.co.uk/smallDuck.png">
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Cloud Integrations | QuackStack Consultancy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: radial-gradient(circle at 50% 40%, #1e40af 0%, #020617 70%);
+            background-color: #020617;
+        }
+        .grid-overlay {
+            background-image: linear-gradient(rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .card {
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            background: rgba(0, 0, 0, 0.30);
+        }
+        .card:hover {
+            border-color: rgba(34, 211, 238, 0.25);
+        }
+        .pill {
+            border: 1px solid rgba(34, 211, 238, 0.20);
+            background: rgba(6, 182, 212, 0.06);
+        }
+    </style>
+</head>
+<body class="text-slate-300 font-sans min-h-screen overflow-x-hidden flex flex-col">
+
+    <div class="fixed inset-0 grid-overlay pointer-events-none"></div>
+
+    <nav class="relative z-20 max-w-7xl mx-auto px-8 py-8 w-full flex justify-between items-center">
+        <a href="index.html" class="flex items-center">
+            <span class="text-white font-black text-2xl tracking-tighter italic uppercase">QUACK<span class="text-cyan-400">stack</span></span>
+        </a>
+        <div class="flex items-center space-x-8 text-[10px] uppercase tracking-[0.2em] font-bold">
+            <a href="services.html" class="hover:text-cyan-400 transition">Services</a>
+            <a href="cloud-integrations.html" class="text-cyan-400 transition">Cloud Integrations</a>
+            <a href="search.html" class="hover:text-cyan-400 transition">Search</a>
+            <a href="https://github.com" class="bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 px-4 py-2 rounded-sm hover:bg-cyan-500 hover:text-black transition">Github</a>
+        </div>
+    </nav>
+
+    <main class="relative z-10 flex-grow w-full">
+        <header class="max-w-7xl mx-auto px-8 pt-6 pb-10">
+            <div class="relative overflow-hidden border border-cyan-500/15 bg-white/5 backdrop-blur-md rounded-lg">
+                <div class="absolute -top-24 -right-24 w-72 h-72 bg-cyan-500/20 blur-[120px] rounded-full"></div>
+                <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-blue-500/20 blur-[120px] rounded-full"></div>
+                <div class="relative p-10 md:p-12">
+                    <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-cyan-400 text-[10px] font-bold uppercase tracking-[0.4em]">
+                        Cloud Integrations
+                    </div>
+                    <h1 class="mt-6 text-4xl md:text-5xl font-black tracking-tight text-white">
+                        Integrations that feel native.
+                    </h1>
+                    <p class="mt-4 max-w-2xl text-slate-300/90 leading-relaxed">
+                        A quick, scannable view of platforms we’ve integrated with and the common patterns we implement (auth, sync, webhooks, data models, and supportable deployments).
+                    </p>
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                        <a href="services.html" class="bg-cyan-500 hover:bg-cyan-400 text-black font-black py-4 px-8 rounded-sm transition-all shadow-[0_0_30px_rgba(6,182,212,0.3)] uppercase tracking-widest text-xs">
+                            Explore Services
+                        </a>
+                        <a href="search.html" class="border border-white/10 hover:border-cyan-500/30 bg-black/20 hover:bg-black/30 text-slate-100 font-bold py-4 px-8 rounded-sm transition uppercase tracking-widest text-xs">
+                            Search Site
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="max-w-7xl mx-auto px-8 pb-16">
+            <div class="overflow-hidden rounded-lg border border-white/10 bg-black/30 backdrop-blur-md">
+                <div class="px-6 py-5 border-b border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                    <div class="text-[10px] uppercase tracking-[0.35em] font-black text-cyan-300/80">Integration catalogue</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="pill text-[10px] font-bold uppercase tracking-[0.25em] text-cyan-300/80 px-2 py-1 rounded-full">OAuth</span>
+                        <span class="pill text-[10px] font-bold uppercase tracking-[0.25em] text-cyan-300/80 px-2 py-1 rounded-full">Webhooks</span>
+                        <span class="pill text-[10px] font-bold uppercase tracking-[0.25em] text-cyan-300/80 px-2 py-1 rounded-full">Sync</span>
+                        <span class="pill text-[10px] font-bold uppercase tracking-[0.25em] text-cyan-300/80 px-2 py-1 rounded-full">ETL</span>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-left">
+                        <thead class="bg-white/[0.02]">
+                            <tr class="text-[10px] uppercase tracking-[0.25em] font-black text-slate-300/70">
+                                <th class="px-6 py-4">App</th>
+                                <th class="px-6 py-4">Typical work</th>
+                                <th class="px-6 py-4">Auth</th>
+                                <th class="px-6 py-4">Common objects</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/10">
+                            <tr class="hover:bg-white/[0.02] transition">
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-cyan-500/25 via-blue-500/15 to-indigo-500/15 border border-white/10 flex items-center justify-center">
+                                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                                <path d="M6 7.5C6 6.12 7.12 5 8.5 5h7C16.88 5 18 6.12 18 7.5v9c0 1.38-1.12 2.5-2.5 2.5h-7C7.12 19 6 17.88 6 16.5v-9Z" stroke="rgba(34,211,238,0.9)" stroke-width="1.5"/>
+                                                <path d="M9 9h6M9 12h6M9 15h4" stroke="rgba(226,232,240,0.9)" stroke-width="1.5" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="text-white font-black tracking-tight">Dynamics CRM</div>
+                                            <div class="text-[11px] text-slate-400 uppercase tracking-widest font-bold">Dataverse</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5 text-[13px] text-slate-300/85 leading-relaxed">
+                                    Bi-directional sync, plugin/flow-friendly payloads, idempotent upserts, and queue-backed retries for reliability.
+                                </td>
+                                <td class="px-6 py-5 text-[13px] text-slate-300/85">
+                                    OAuth 2.0 (Azure AD)
+                                </td>
+                                <td class="px-6 py-5 text-[13px] text-slate-300/85">
+                                    Accounts, Contacts, Leads, Opportunities, Activities
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-white/[0.02] transition">
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-emerald-500/20 via-cyan-500/10 to-blue-500/10 border border-white/10 flex items-center justify-center">
+                                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                                <path d="M7 8.5a5 5 0 0 1 9.4-2.2A4.2 4.2 0 0 1 19 10.2c0 2.1-1.6 3.8-3.7 3.8H10.2C8.4 14 7 12.6 7 10.8V8.5Z" stroke="rgba(34,211,238,0.9)" stroke-width="1.5"/>
+                                                <path d="M8.5 16.5h7" stroke="rgba(226,232,240,0.9)" stroke-width="1.5" stroke-linecap="round"/>
+                                                <path d="M10 19h4" stroke="rgba(226,232,240,0.9)" stroke-width="1.5" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="text-white font-black tracking-tight">Microsoft Graph API</div>
+                                            <div class="text-[11px] text-slate-400 uppercase tracking-widest font-bold">M365</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5 text-[13px] text-slate-300/85 leading-relaxed">
+                                    Secure app registrations, incremental consent, webhook subscriptions, and high-throughput pagination with backoff.
+                                </td>
+                                <td class="px-6 py-5 text-[13px] text-slate-300/85">
+                                    OAuth 2.0 (client credentials / delegated)
+                                </td>
+                                <td class="px-6 py-5 text-[13px] text-slate-300/85">
+                                    Users, Groups, Mail, Calendar, Drive, Teams
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-white/[0.02] transition">
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-amber-500/20 via-rose-500/10 to-blue-500/10 border border-white/10 flex items-center justify-center">
+                                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                                <path d="M7.5 6.5h9A2.5 2.5 0 0 1 19 9v8a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 5 17V9a2.5 2.5 0 0 1 2.5-2.5Z" stroke="rgba(34,211,238,0.9)" stroke-width="1.5"/>
+                                                <path d="M8.5 10h7M8.5 13h5M8.5 16h6" stroke="rgba(226,232,240,0.9)" stroke-width="1.5" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="text-white font-black tracking-tight">Google Classroom</div>
+                                            <div class="text-[11px] text-slate-400 uppercase tracking-widest font-bold">Education</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5 text-[13px] text-slate-300/85 leading-relaxed">
+                                    Course roster sync, assignment workflows, and background processing with quotas and token refresh handled cleanly.
+                                </td>
+                                <td class="px-6 py-5 text-[13px] text-slate-300/85">
+                                    OAuth 2.0 (Google)
+                                </td>
+                                <td class="px-6 py-5 text-[13px] text-slate-300/85">
+                                    Courses, Students, Coursework, Submissions
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="px-6 py-5 border-t border-white/10 text-[12px] text-slate-400/80">
+                    Want more rows? Add apps and I’ll drop them in: Slack, Jira, ServiceNow, Stripe, SharePoint, Power BI, HubSpot, GitHub, Azure DevOps, and more.
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-8 pb-20">
+            <div class="border border-white/10 bg-black/30 backdrop-blur-md rounded-lg p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                <div>
+                    <h3 class="text-white font-black text-2xl tracking-tight">Need an integration built?</h3>
+                    <p class="mt-3 text-slate-300/85 max-w-2xl">
+                        Tell us what the source/target systems are, the objects that matter, and whether you need real-time updates or batch sync. We’ll suggest a clean approach.
+                    </p>
+                </div>
+                <a href="index.html" class="bg-cyan-500 hover:bg-cyan-400 text-black font-black py-4 px-8 rounded-sm transition-all shadow-[0_0_30px_rgba(6,182,212,0.25)] uppercase tracking-widest text-xs">
+                    Back to Home
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="relative z-10 border-t border-white/5 py-10 bg-black/30 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center opacity-40">
+            <div class="flex items-center space-x-2 text-[9px] tracking-[0.4em] uppercase">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <span>Deployed on Microsoft Azure</span>
+            </div>
+            <div class="flex space-x-10 text-[9px] tracking-[0.2em] font-black">
+                <span>PYTHON</span>
+                <span>DOCKER</span>
+                <span>STREAMLIT</span>
+                <span>POSTGRES</span>
+            </div>
+            <div class="text-[9px]">© 2026 QUACKSTACK</div>
+        </div>
+    </footer>
+
+</body>
+</html>
