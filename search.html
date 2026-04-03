@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site search | QuackStack Consultancy — search every page.">
+    <link rel="canonical" href="https://www.thequackstack.co.uk/search.html">
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="#020617">
+
+    <meta property="og:title" content="Site search | QuackStack Consultancy">
+    <meta property="og:description" content="Search the QuackStack site — home, services, portfolio, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.thequackstack.co.uk/search.html">
+    <meta property="og:image" content="https://www.thequackstack.co.uk/smallDuck.png">
+    <meta property="og:site_name" content="QuackStack Consultancy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Site search | QuackStack Consultancy">
+    <meta name="twitter:description" content="Search the QuackStack site — home, services, portfolio, and more.">
+    <meta name="twitter:image" content="https://www.thequackstack.co.uk/smallDuck.png">
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Site search | QuackStack Consultancy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: radial-gradient(circle at 50% 40%, #1e40af 0%, #020617 70%);
+            background-color: #020617;
+        }
+        .grid-overlay {
+            background-image: linear-gradient(rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .search-glow {
+            box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.15), 0 0 60px rgba(6, 182, 212, 0.12);
+        }
+        mark {
+            background: rgba(34, 211, 238, 0.25);
+            color: #ecfeff;
+            padding: 0 0.15em;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="text-slate-300 font-sans min-h-screen overflow-x-hidden flex flex-col">
+
+    <div class="fixed inset-0 grid-overlay pointer-events-none"></div>
+
+    <nav class="relative z-20 max-w-7xl mx-auto px-8 py-8 w-full flex justify-between items-center">
+        <a href="index.html" class="flex items-center">
+            <span class="text-white font-black text-2xl tracking-tighter italic uppercase">QUACK<span class="text-cyan-400">stack</span></span>
+        </a>
+        <div class="flex items-center space-x-8 text-[10px] uppercase tracking-[0.2em] font-bold">
+            <a href="services.html" class="hover:text-cyan-400 transition">Services</a>
+            <a href="portfolio.html" class="hover:text-cyan-400 transition">Portfolio</a>
+            <a href="search.html" class="text-cyan-400 transition">Search</a>
+            <a href="https://github.com" class="bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 px-4 py-2 rounded-sm hover:bg-cyan-500 hover:text-black transition">Github</a>
+        </div>
+    </nav>
+
+    <main class="relative z-10 flex-grow w-full max-w-4xl mx-auto px-8 pb-20 pt-2">
+        <header class="mb-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-cyan-400 text-[10px] font-bold uppercase tracking-[0.4em]">
+                Site search
+            </div>
+            <h1 class="mt-5 text-4xl md:text-5xl font-black tracking-tight text-white">
+                Find anything on the site
+            </h1>
+            <p class="mt-3 text-slate-300/85 max-w-xl leading-relaxed text-sm md:text-base">
+                We index every public HTML page in this folder. Results update from your live pages when you use a web server (same origin). Offline or <code class="text-cyan-300/90">file://</code> falls back to a bundled snapshot.
+            </p>
+        </header>
+
+        <div class="relative rounded-xl border border-cyan-500/20 bg-white/[0.04] backdrop-blur-md search-glow p-2 md:p-3">
+            <label for="q" class="sr-only">Search</label>
+            <div class="flex flex-col sm:flex-row gap-3 sm:items-center">
+                <div class="relative flex-1">
+                    <span class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-cyan-400/80" aria-hidden="true">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    </span>
+                    <input id="q" type="search" autocomplete="off" placeholder="Try: Azure, Postgres, CI/CD, strangler…" autofocus
+                           class="w-full rounded-lg bg-black/40 border border-white/10 pl-12 pr-4 py-4 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-cyan-500/40 focus:ring-2 focus:ring-cyan-500/20 text-sm md:text-base" />
+                </div>
+                <div class="flex items-center gap-3 shrink-0 px-1">
+                    <span id="indexStatus" class="text-[10px] uppercase tracking-[0.25em] font-bold text-slate-500 whitespace-nowrap">Indexing…</span>
+                    <kbd class="hidden sm:inline-block text-[10px] font-mono text-slate-500 border border-white/10 rounded px-2 py-1 bg-black/30">/</kbd>
+                </div>
+            </div>
+        </div>
+
+        <p id="resultMeta" class="mt-6 text-[11px] uppercase tracking-[0.2em] font-bold text-slate-500"></p>
+        <ul id="results" class="mt-4 space-y-4" role="list"></ul>
+        <p id="emptyHint" class="mt-8 text-sm text-slate-500 hidden"></p>
+    </main>
+
+    <footer class="relative z-10 border-t border-white/5 py-10 bg-black/30 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center opacity-40">
+            <div class="flex items-center space-x-2 text-[9px] tracking-[0.4em] uppercase">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <span>Deployed on Microsoft Azure</span>
+            </div>
+            <div class="flex space-x-10 text-[9px] tracking-[0.2em] font-black">
+                <span>PYTHON</span>
+                <span>DOCKER</span>
+                <span>STREAMLIT</span>
+                <span>POSTGRES</span>
+            </div>
+            <div class="text-[9px]">© 2026 QUACKSTACK</div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const PAGE_FILES = [
+                "index.html",
+                "services.html",
+                "portfolio.html",
+                "search.html"
+            ];
+
+            /** Bundled snapshot when fetch() is not available (e.g. file://). Keep in sync when you add pages or change copy. */
+            var SEARCH_FALLBACK = [
+                { href: "index.html", title: "QuackStack Consultancy | Cloud & Code", text: "QUACKstack Services Portfolio Search Github QuackStack Consultancy The Future is Feathered Launch Project Environment Deployed on Microsoft Azure PYTHON DOCKER STREAMLIT POSTGRES © 2026 QUACKSTACK" },
+                { href: "services.html", title: "Services | QuackStack Consultancy", text: "Services Cloud & code work that ships. QuackStack helps teams design resilient platforms, automate delivery, and modernize systems without turning your roadmap into confetti. View Portfolio Search Site Cloud Architecture Reference architectures, platform blueprints, and pragmatic trade-offs. Build for reliability and cost without sacrificing speed. Azure landing zones & environment strategy Service decomposition & API boundaries Observability and SLO design DevOps & Delivery Pipelines, infra automation, and release confidence. Less hand-waving, more green builds. CI/CD design (GitHub Actions, Azure DevOps) Containerization & deployment patterns Infrastructure as Code (Terraform/Bicep) Data Platforms From it works on my laptop to dependable pipelines. Shape data models, governance, and performance. Postgres optimization & modeling Stream processing and batch reliability Dashboarding and operational analytics Security Baselines Secure by default: identity, secrets, and guardrails that don't slow teams to a crawl. IAM and least-privilege reviews Secrets management patterns Supply-chain and dependency hygiene Want a quick technical sanity-check? Send a short overview of what you're building and what's hurting. We'll suggest a sensible path forward. Back to Home" },
+                { href: "portfolio.html", title: "Portfolio | QuackStack Consultancy", text: "Portfolio Selected work. Real outcomes. A few representative engagements. Swap in your real case studies any time — the layout is built for clean, modern storytelling. Explore Services Search Site Filter All Platform Delivery Data Modernization Platform Azure Landing zone + guardrails Standardized environments, identity, and policy — so teams can deploy safely without waiting for permission slips. IaC Policy Observability Delivery Containers CI/CD that stays green Reproducible builds, automated testing gates, and safe deployments — with simple rollback paths. GitHub Actions Release DX Data Postgres Fast, reliable pipelines Modeling, performance work, and operational visibility so teams can trust what they ship to production. Tuning Reliability Metrics Modernization Cloud Legacy uplift Reduce risk with stepping-stone migrations: strangler patterns, shared contracts, and incremental wins. Strangler APIs Roadmap Platform SRE SLOs + alert sanity Observability with intent: fewer alerts, clearer ownership, and metrics that map to user experience. SLOs Tracing Runbooks Data Analytics Operational dashboards Make operations visible: throughput, failures, latency, and cost signals in one place. KPIs Cost Alerts Want these to be your real case studies? Tell me your project names + outcomes, and I'll swap the content while keeping the same modern layout. Back to Home" },
+                { href: "search.html", title: "Site search | QuackStack Consultancy", text: "Site search Find anything on the site Search every page index fallback Azure Postgres" }
+            ];
+
+            const input = document.getElementById("q");
+            const resultsEl = document.getElementById("results");
+            const metaEl = document.getElementById("resultMeta");
+            const statusEl = document.getElementById("indexStatus");
+            const emptyHint = document.getElementById("emptyHint");
+
+            let index = [];
+            let debounceTimer = null;
+
+            function normalize(s) {
+                return (s || "").toLowerCase().replace(/\s+/g, " ").trim();
+            }
+
+            function tokenize(q) {
+                return normalize(q)
+                    .split(/\s+/)
+                    .filter(function (t) { return t.length >= 2; });
+            }
+
+            function textFromBody(doc) {
+                var clone = doc.body.cloneNode(true);
+                clone.querySelectorAll("script, style, noscript").forEach(function (n) { n.remove(); });
+                return normalize(clone.innerText || "");
+            }
+
+            function parsePage(html, href) {
+                var parser = new DOMParser();
+                var doc = parser.parseFromString(html, "text/html");
+                var title = (doc.querySelector("title") && doc.querySelector("title").textContent) || href;
+                title = normalize(title.replace(/\s+/g, " "));
+                var pageText = textFromBody(doc);
+                var metaDesc = doc.querySelector('meta[name="description"]');
+                var extra = metaDesc ? normalize(metaDesc.getAttribute("content") || "") : "";
+                var combined = title + " " + (extra ? extra + " " : "") + pageText;
+                return [{ href: href, title: title, text: combined }];
+            }
+
+            function escapeHtml(str) {
+                return String(str)
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;");
+            }
+
+            function snippet(text, terms) {
+                var lower = text.toLowerCase();
+                var pos = -1;
+                for (var i = 0; i < terms.length; i++) {
+                    var p = lower.indexOf(terms[i]);
+                    if (p >= 0) {
+                        pos = p;
+                        break;
+                    }
+                }
+                if (pos < 0) pos = 0;
+                var start = Math.max(0, pos - 70);
+                var slice = text.slice(start, start + 220);
+                if (start > 0) slice = "…" + slice;
+                if (start + 220 < text.length) slice = slice + "…";
+                return slice;
+            }
+
+            function highlightSnippet(raw, terms) {
+                var s = escapeHtml(raw);
+                var seen = {};
+                terms.forEach(function (term) {
+                    if (seen[term]) return;
+                    seen[term] = true;
+                    var re = new RegExp("(" + term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "gi");
+                    s = s.replace(re, "<mark>$1</mark>");
+                });
+                return s;
+            }
+
+            function scoreChunk(chunk, terms) {
+                var hay = chunk.text.toLowerCase();
+                var titleLower = chunk.title.toLowerCase();
+                var score = 0;
+                terms.forEach(function (t) {
+                    if (titleLower.indexOf(t) >= 0) score += 5;
+                    var idx = 0;
+                    while ((idx = hay.indexOf(t, idx)) >= 0) {
+                        score += 2;
+                        idx += t.length;
+                    }
+                });
+                return score;
+            }
+
+            function render(items, query) {
+                resultsEl.innerHTML = "";
+                var terms = tokenize(query);
+                if (!terms.length) {
+                    metaEl.textContent = "";
+                    emptyHint.classList.add("hidden");
+                    return;
+                }
+                if (!items.length) {
+                    metaEl.textContent = "No matches";
+                    emptyHint.textContent = "Try different keywords, or check spelling.";
+                    emptyHint.classList.remove("hidden");
+                    return;
+                }
+                emptyHint.classList.add("hidden");
+                metaEl.textContent = items.length + " result" + (items.length === 1 ? "" : "s");
+
+                items.forEach(function (item) {
+                    var sn = snippet(item.chunk.text, terms);
+                    var htmlSn = highlightSnippet(sn, terms);
+                    var li = document.createElement("li");
+                    li.innerHTML =
+                        '<a href="' + escapeHtml(item.chunk.href) + '" class="group block rounded-xl border border-white/10 bg-black/30 hover:border-cyan-500/30 backdrop-blur-md p-5 transition">' +
+                        '<div class="text-[10px] uppercase tracking-[0.25em] font-bold text-cyan-400/90">' + escapeHtml(item.chunk.href) + "</div>" +
+                        '<div class="mt-2 text-lg font-black text-white group-hover:text-cyan-200 transition">' + escapeHtml(item.chunk.title) + "</div>" +
+                        '<div class="mt-2 text-sm text-slate-400 leading-relaxed line-clamp-3">' + htmlSn + "</div>" +
+                        '<div class="mt-3 text-[10px] font-bold uppercase tracking-widest text-slate-600 group-hover:text-slate-500">Open page →</div>' +
+                        "</a>";
+                    resultsEl.appendChild(li);
+                });
+            }
+
+            function runSearch() {
+                var q = input.value;
+                var terms = tokenize(q);
+                if (!terms.length) {
+                    render([], q);
+                    return;
+                }
+                var scored = [];
+                index.forEach(function (chunk) {
+                    var ok = terms.every(function (t) { return chunk.text.toLowerCase().indexOf(t) >= 0; });
+                    if (!ok) return;
+                    var sc = scoreChunk(chunk, terms);
+                    if (sc > 0) scored.push({ chunk: chunk, score: sc });
+                });
+                scored.sort(function (a, b) { return b.score - a.score; });
+                render(scored, q);
+            }
+
+            function setStatus(text, ok) {
+                statusEl.textContent = text;
+                statusEl.className = "text-[10px] uppercase tracking-[0.25em] font-bold whitespace-nowrap " + (ok ? "text-cyan-500/80" : "text-amber-500/80");
+            }
+
+            function buildIndexFromNetwork() {
+                return Promise.all(
+                    PAGE_FILES.map(function (file) {
+                        return fetch(file, { cache: "no-store" })
+                            .then(function (r) {
+                                if (!r.ok) throw new Error(file);
+                                return r.text();
+                            })
+                            .then(function (html) {
+                                return parsePage(html, file);
+                            });
+                    })
+                ).then(function (arrays) {
+                    return arrays.flat();
+                });
+            }
+
+            function init() {
+                buildIndexFromNetwork()
+                    .then(function (chunks) {
+                        index = chunks;
+                        setStatus("Live index", true);
+                    })
+                    .catch(function () {
+                        index = SEARCH_FALLBACK.map(function (row) {
+                            return { href: row.href, title: row.title, text: row.text };
+                        });
+                        setStatus("Snapshot", false);
+                        emptyHint.textContent = "Using bundled snapshot (open via http:// or deploy for live indexing).";
+                        emptyHint.classList.remove("hidden");
+                    })
+                    .finally(function () {
+                        var params = new URLSearchParams(window.location.search);
+                        var qParam = params.get("q");
+                        if (qParam) input.value = qParam;
+                        runSearch();
+                    });
+            }
+
+            input.addEventListener("input", function () {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(runSearch, 120);
+                try {
+                    var u = new URL(window.location.href);
+                    u.searchParams.set("q", input.value);
+                    if (!input.value) u.searchParams.delete("q");
+                    window.history.replaceState({}, "", u.pathname + u.search + u.hash);
+                } catch (e) {}
+            });
+
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "/" && document.activeElement !== input) {
+                    e.preventDefault();
+                    input.focus();
+                }
+            });
+
+            init();
+        })();
+    </script>
+</body>
+</html>
