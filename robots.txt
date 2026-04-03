@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /paul.html
 
 Sitemap: https://www.thequackstack.co.uk/sitemap.xml

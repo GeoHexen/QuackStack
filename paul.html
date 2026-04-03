@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Private page — invitation only.">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="theme-color" content="#020617">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Paul | QuackStack Consultancy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: radial-gradient(circle at 50% 40%, #1e40af 0%, #020617 70%);
+            background-color: #020617;
+        }
+        .grid-overlay {
+            background-image: linear-gradient(rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+    </style>
+</head>
+<body class="text-slate-300 font-sans min-h-screen overflow-x-hidden flex flex-col">
+
+    <div class="fixed inset-0 grid-overlay pointer-events-none"></div>
+
+    <nav class="relative z-20 max-w-7xl mx-auto px-8 py-8 w-full flex justify-between items-center">
+        <a href="index.html" class="flex items-center">
+            <span class="text-white font-black text-2xl tracking-tighter italic uppercase">QUACK<span class="text-cyan-400">stack</span></span>
+        </a>
+        <div class="flex items-center space-x-8 text-[10px] uppercase tracking-[0.2em] font-bold">
+            <a href="services.html" class="hover:text-cyan-400 transition">Services</a>
+            <a href="portfolio.html" class="hover:text-cyan-400 transition">Portfolio</a>
+            <a href="search.html" class="hover:text-cyan-400 transition">Search</a>
+            <a href="https://github.com" class="bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 px-4 py-2 rounded-sm hover:bg-cyan-500 hover:text-black transition">Github</a>
+        </div>
+    </nav>
+
+    <main class="relative z-10 flex-grow w-full max-w-3xl mx-auto px-8 pb-24 pt-4">
+        <div class="relative overflow-hidden border border-cyan-500/15 bg-white/5 backdrop-blur-md rounded-lg">
+            <div class="absolute -top-24 -right-24 w-72 h-72 bg-cyan-500/20 blur-[120px] rounded-full"></div>
+            <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-blue-500/20 blur-[120px] rounded-full"></div>
+
+            <div class="relative p-10 md:p-14 text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-cyan-400 text-[10px] font-bold uppercase tracking-[0.4em]">
+                    Paul
+                </div>
+
+                <div id="state-denied" class="hidden mt-8 space-y-4">
+                    <h1 class="text-2xl md:text-3xl font-black tracking-tight text-white">Invitation only</h1>
+                    <p class="text-slate-300/90 leading-relaxed text-sm md:text-base max-w-lg mx-auto">
+                        This page is not listed in the site navigation. Register with your email first; after you verify your address, you will be emailed a unique link to open this page.
+                    </p>
+                </div>
+
+                <div id="state-expired" class="hidden mt-8 space-y-4">
+                    <h1 class="text-2xl md:text-3xl font-black tracking-tight text-white">Link expired</h1>
+                    <p class="text-slate-300/90 leading-relaxed text-sm md:text-base max-w-lg mx-auto">
+                        This invitation link was valid for 30 minutes and has now expired. Request a new verification email to receive a fresh link.
+                    </p>
+                </div>
+
+                <div id="state-ok" class="hidden mt-8 space-y-6">
+                    <h1 class="text-2xl md:text-3xl font-black tracking-tight text-white">You are in</h1>
+                    <p class="text-slate-300/90 leading-relaxed text-sm md:text-base max-w-lg mx-auto">
+                        Thanks — your email path checks out for now. This is a holding space; the full experience for Paul will land here after the next build.
+                    </p>
+                    <p id="countdown" class="text-[11px] uppercase tracking-[0.25em] font-bold text-cyan-400/80"></p>
+                </div>
+            </div>
+        </div>
+
+        <p class="mt-8 text-center text-[10px] text-slate-500 max-w-md mx-auto leading-relaxed">
+            Links use <code class="text-cyan-500/80">?token=…</code> and <code class="text-cyan-500/80">exp=…</code> (Unix time in milliseconds when the link stops working). Your mailer should set <code class="text-cyan-500/80">exp</code> to 30 minutes after the email is sent. Strong protection requires validating the token on a server.
+        </p>
+    </main>
+
+    <footer class="relative z-10 border-t border-white/5 py-10 bg-black/30 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center opacity-40">
+            <div class="flex items-center space-x-2 text-[9px] tracking-[0.4em] uppercase">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <span>Deployed on Microsoft Azure</span>
+            </div>
+            <div class="flex space-x-10 text-[9px] tracking-[0.2em] font-black">
+                <span>PYTHON</span>
+                <span>DOCKER</span>
+                <span>STREAMLIT</span>
+                <span>POSTGRES</span>
+            </div>
+            <div class="text-[9px]">© 2026 QUACKSTACK</div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var MIN_TOKEN_LEN = 12;
+            var params = new URLSearchParams(window.location.search);
+            var token = (params.get("token") || "").trim();
+            var expRaw = params.get("exp");
+            var exp = expRaw ? parseInt(expRaw, 10) : NaN;
+
+            var denied = document.getElementById("state-denied");
+            var expired = document.getElementById("state-expired");
+            var ok = document.getElementById("state-ok");
+            var countdownEl = document.getElementById("countdown");
+
+            function show(el) {
+                denied.classList.add("hidden");
+                expired.classList.add("hidden");
+                ok.classList.add("hidden");
+                el.classList.remove("hidden");
+            }
+
+            var validToken = token.length >= MIN_TOKEN_LEN;
+            var validExp = Number.isFinite(exp) && exp > 0;
+
+            if (!validToken || !validExp) {
+                show(denied);
+                return;
+            }
+
+            if (Date.now() > exp) {
+                show(expired);
+                return;
+            }
+
+            show(ok);
+
+            function tick() {
+                var ms = exp - Date.now();
+                if (ms <= 0) {
+                    show(expired);
+                    return;
+                }
+                var m = Math.floor(ms / 60000);
+                var s = Math.floor((ms % 60000) / 1000);
+                countdownEl.textContent = "Link expires in " + m + "m " + s + "s";
+                setTimeout(tick, 1000);
+            }
+            tick();
+        })();
+    </script>
+</body>
+</html>
